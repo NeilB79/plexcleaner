@@ -1,0 +1,394 @@
+{
+  "metadataSample": [
+    {
+      "ratingKey": "5619",
+      "key": "/library/metadata/5619/children",
+      "guid": "plex://show/5d9c0802e264b7001fc39d00",
+      "slug": "8-out-of-10-cats",
+      "studio": "Zeppotron",
+      "type": "show",
+      "title": "8 Out of 10 Cats",
+      "contentRating": "TV-PG",
+      "summary": "8 Out Of 10 Cats is a cheeky and articulate comedy panel show hosted by English comedian Jimmy Carr that uses statistics and a series of opinion polls as a basis for discussion.",
+      "index": 1,
+      "rating": 7.7,
+      "audienceRating": 7.1,
+      "year": 2005,
+      "thumb": "/library/metadata/5619/thumb/1772775839",
+      "art": "/library/metadata/5619/art/1772775839",
+      "theme": "/library/metadata/5619/theme/1772775839",
+      "duration": 1800000,
+      "originallyAvailableAt": "2005-06-03",
+      "leafCount": 12,
+      "viewedLeafCount": 0,
+      "childCount": 3,
+      "addedAt": 1743361166,
+      "updatedAt": 1772775839,
+      "audienceRatingImage": "themoviedb://image.rating",
+      "Image": [
+        {
+          "alt": "8 Out of 10 Cats",
+          "type": "coverPoster",
+          "url": "/library/metadata/5619/thumb/1772775839"
+        },
+        {
+          "alt": "8 Out of 10 Cats",
+          "type": "background",
+          "url": "/library/metadata/5619/art/1772775839"
+        },
+        {
+          "alt": "8 Out of 10 Cats",
+          "type": "clearLogo",
+          "url": "/library/metadata/5619/clearLogo/1772775839"
+        }
+      ],
+      "UltraBlurColors": {
+        "topLeft": "01276a",
+        "topRight": "354c8d",
+        "bottomRight": "0e4092",
+        "bottomLeft": "03248b"
+      },
+      "Genre": [
+        {
+          "tag": "Comedy"
+        },
+        {
+          "tag": "Game Show"
+        }
+      ],
+      "Country": [
+        {
+          "tag": "United Kingdom"
+        }
+      ],
+      "Role": [
+        {
+          "tag": "Jimmy Carr"
+        },
+        {
+          "tag": "Sean Lock"
+        },
+        {
+          "tag": "Jon Richardson"
+        }
+      ]
+    },
+    {
+      "ratingKey": "29",
+      "key": "/library/metadata/29/children",
+      "guid": "plex://show/5d9c08692192ba001f30f7ca",
+      "slug": "8-out-of-10-cats-does-countdown",
+      "studio": "Zeppotron",
+      "type": "show",
+      "title": "8 Out of 10 Cats Does Countdown",
+      "contentRating": "TV-MA",
+      "summary": "A raunchy spoof edition of Countdown (1982) with the stars of 8 Out of 10 Cats (2005).",
+      "index": 1,
+      "rating": 8.2,
+      "audienceRating": 7.3,
+      "viewCount": 97,
+      "skipCount": 1,
+      "lastViewedAt": 1772748911,
+      "year": 2012,
+      "thumb": "/library/metadata/29/thumb/1772775839",
+      "art": "/library/metadata/29/art/1772775839",
+      "theme": "/library/metadata/29/theme/1772775839",
+      "duration": 2820000,
+      "originallyAvailableAt": "2012-01-02",
+      "leafCount": 104,
+      "viewedLeafCount": 97,
+      "childCount": 25,
+      "addedAt": 1724413278,
+      "updatedAt": 1772775839,
+      "audienceRatingImage": "themoviedb://image.rating",
+      "Image": [
+        {
+          "alt": "8 Out of 10 Cats Does Countdown",
+          "type": "coverPoster",
+          "url": "/library/metadata/29/thumb/1772775839"
+        },
+        {
+          "alt": "8 Out of 10 Cats Does Countdown",
+          "type": "background",
+          "url": "/library/metadata/29/art/1772775839"
+        },
+        {
+          "alt": "8 Out of 10 Cats Does Countdown",
+          "type": "clearLogo",
+          "url": "/library/metadata/29/clearLogo/1772775839"
+        }
+      ],
+      "UltraBlurColors": {
+        "topLeft": "03276b",
+        "topRight": "243496",
+        "bottomRight": "51408d",
+        "bottomLeft": "275da4"
+      },
+      "Genre": [
+        {
+          "tag": "Comedy"
+        },
+        {
+          "tag": "Reality"
+        }
+      ],
+      "Country": [
+        {
+          "tag": "United Kingdom"
+        }
+      ],
+      "Role": [
+        {
+          "tag": "Jon Richardson"
+        },
+        {
+          "tag": "Jimmy Carr"
+        },
+        {
+          "tag": "Rachel Riley"
+        }
+      ]
+    },
+    {
+      "ratingKey": "4702",
+      "key": "/library/metadata/4702/children",
+      "guid": "plex://show/6220cd604a7f45ca0eca9821",
+      "slug": "1923",
+      "studio": "Bosque Ranch Productions",
+      "type": "show",
+      "title": "1923",
+      "contentRating": "TV-MA",
+      "contentRatingAge": 15,
+      "summary": "The next installment of the Yellowstone origin story introduces a new generation of the Dutton family and explores the early twentieth century when pandemics, historic drought, the end of Prohibition, and the Great Depression all plague the Mountain West, and the Duttons who call it home.",
+      "index": 1,
+      "rating": 8.3,
+      "audienceRating": 8.2,
+      "userRating": 9.4,
+      "skipCount": 1,
+      "lastViewedAt": 1745177249,
+      "lastRatedAt": 1772861205,
+      "year": 2022,
+      "tagline": "Defend or die.",
+      "thumb": "/library/metadata/4702/thumb/1772775804",
+      "art": "/library/metadata/4702/art/1772775804",
+      "theme": "/library/metadata/4702/theme/1772775804",
+      "duration": 3600000,
+      "originallyAvailableAt": "2022-12-18",
+      "leafCount": 15,
+      "viewedLeafCount": 0,
+      "childCount": 2,
+      "addedAt": 1738095543,
+      "updatedAt": 1772775804,
+      "audienceRatingImage": "themoviedb://image.rating",
+      "primaryExtraKey": "/library/metadata/4712",
+      "Image": [
+        {
+          "alt": "1923",
+          "type": "coverPoster",
+          "url": "/library/metadata/4702/thumb/1772775804"
+        },
+        {
+          "alt": "1923",
+          "type": "background",
+          "url": "/library/metadata/4702/art/1772775804"
+        },
+        {
+          "alt": "1923",
+          "type": "clearLogo",
+          "url": "/library/metadata/4702/clearLogo/1772775804"
+        }
+      ],
+      "UltraBlurColors": {
+        "topLeft": "123241",
+        "topRight": "1a4257",
+        "bottomRight": "1b4259",
+        "bottomLeft": "2c6679"
+      },
+      "Genre": [
+        {
+          "tag": "Drama"
+        },
+        {
+          "tag": "Western"
+        }
+      ],
+      "Country": [
+        {
+          "tag": "United States of America"
+        }
+      ],
+      "Role": [
+        {
+          "tag": "Helen Mirren"
+        },
+        {
+          "tag": "Harrison Ford"
+        },
+        {
+          "tag": "Brandon Sklenar"
+        }
+      ]
+    },
+    {
+      "ratingKey": "14388",
+      "key": "/library/metadata/14388/children",
+      "guid": "plex://show/61a787f3e791a9a4411b2667",
+      "slug": "the-abandons",
+      "studio": "SutterInk",
+      "type": "show",
+      "title": "The Abandons",
+      "titleSort": "Abandons",
+      "contentRating": "TV-MA",
+      "contentRatingAge": 16,
+      "summary": "Washington Territory - 1854 - The matriarchs of two very different families - one of wealth and privilege bound by blood, the other a found family of orphans and outcasts bound by love and necessity - find their fates linked by two crimes, an awful secret, a star-crossed love, and a piece of land with silver underneath. The collision echoes the American struggle of the haves and have-nots, in a place just beyond the reach of justice.",
+      "index": 1,
+      "rating": 6.4,
+      "audienceRating": 5.7,
+      "userRating": 3,
+      "lastRatedAt": 1772775338,
+      "year": 2025,
+      "thumb": "/library/metadata/14388/thumb/1772776120",
+      "art": "/library/metadata/14388/art/1772776120",
+      "duration": 2700000,
+      "originallyAvailableAt": "2025-12-04",
+      "leafCount": 7,
+      "viewedLeafCount": 0,
+      "childCount": 1,
+      "addedAt": 1766592963,
+      "updatedAt": 1772776120,
+      "audienceRatingImage": "themoviedb://image.rating",
+      "primaryExtraKey": "/library/metadata/14401",
+      "Image": [
+        {
+          "alt": "The Abandons",
+          "type": "coverPoster",
+          "url": "/library/metadata/14388/thumb/1772776120"
+        },
+        {
+          "alt": "The Abandons",
+          "type": "background",
+          "url": "/library/metadata/14388/art/1772776120"
+        },
+        {
+          "alt": "The Abandons",
+          "type": "clearLogo",
+          "url": "/library/metadata/14388/clearLogo/1772776120"
+        }
+      ],
+      "UltraBlurColors": {
+        "topLeft": "120303",
+        "topRight": "2d0b04",
+        "bottomRight": "371d04",
+        "bottomLeft": "2b1304"
+      },
+      "Genre": [
+        {
+          "tag": "Drama"
+        },
+        {
+          "tag": "Western"
+        }
+      ],
+      "Country": [
+        {
+          "tag": "United States of America"
+        }
+      ],
+      "Role": [
+        {
+          "tag": "Lena Headey"
+        },
+        {
+          "tag": "Gillian Anderson"
+        },
+        {
+          "tag": "Nick Robinson"
+        }
+      ]
+    },
+    {
+      "ratingKey": "7630",
+      "key": "/library/metadata/7630/children",
+      "guid": "plex://show/5fd4f9d15e58c2002ed6b402",
+      "slug": "the-acolyte",
+      "studio": "Lucasfilm Ltd.",
+      "type": "show",
+      "title": "The Acolyte",
+      "titleSort": "Acolyte",
+      "contentRating": "TV-14",
+      "contentRatingAge": 10,
+      "summary": "An investigation into a shocking crime spree pits a respected Jedi Master against a dangerous warrior from his past. As more clues emerge, they travel down a dark path where sinister forces reveal all is not what it seems…",
+      "index": 1,
+      "rating": 4.3,
+      "audienceRating": 5.4,
+      "userRating": 7.9,
+      "lastRatedAt": 1772861202,
+      "year": 2024,
+      "tagline": "In an age of light a darkness rises.",
+      "thumb": "/library/metadata/7630/thumb/1772776138",
+      "art": "/library/metadata/7630/art/1772776138",
+      "theme": "/library/metadata/7630/theme/1772776138",
+      "duration": 2400000,
+      "originallyAvailableAt": "2024-06-04",
+      "leafCount": 8,
+      "viewedLeafCount": 0,
+      "childCount": 1,
+      "addedAt": 1746315949,
+      "updatedAt": 1772776138,
+      "audienceRatingImage": "themoviedb://image.rating",
+      "primaryExtraKey": "/library/metadata/7676",
+      "Image": [
+        {
+          "alt": "The Acolyte",
+          "type": "coverPoster",
+          "url": "/library/metadata/7630/thumb/1772776138"
+        },
+        {
+          "alt": "The Acolyte",
+          "type": "background",
+          "url": "/library/metadata/7630/art/1772776138"
+        },
+        {
+          "alt": "The Acolyte",
+          "type": "clearLogo",
+          "url": "/library/metadata/7630/clearLogo/1772776138"
+        }
+      ],
+      "UltraBlurColors": {
+        "topLeft": "52170f",
+        "topRight": "480d0c",
+        "bottomRight": "721c1a",
+        "bottomLeft": "451010"
+      },
+      "Genre": [
+        {
+          "tag": "Mystery"
+        },
+        {
+          "tag": "Action"
+        }
+      ],
+      "Country": [
+        {
+          "tag": "United States of America"
+        }
+      ],
+      "Collection": [
+        {
+          "tag": "Star Wars Universe"
+        }
+      ],
+      "Role": [
+        {
+          "tag": "Amandla Stenberg"
+        },
+        {
+          "tag": "Lee Jung-jae"
+        },
+        {
+          "tag": "Joonas Suotamo"
+        }
+      ]
+    }
+  ]
+}

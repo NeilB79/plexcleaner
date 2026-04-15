@@ -1,0 +1,169 @@
+{
+  "accounts": {
+    "MediaContainer": {
+      "size": 6,
+      "identifier": "com.plexapp.system.accounts",
+      "Account": [
+        {
+          "id": 0,
+          "key": "/accounts/0",
+          "name": "",
+          "defaultAudioLanguage": "en",
+          "autoSelectAudio": true,
+          "defaultSubtitleLanguage": "en",
+          "subtitleMode": 1,
+          "thumb": ""
+        },
+        {
+          "id": 1,
+          "key": "/accounts/1",
+          "name": "Neils_Plex",
+          "defaultAudioLanguage": "en",
+          "autoSelectAudio": true,
+          "defaultSubtitleLanguage": "en",
+          "subtitleMode": 2,
+          "thumb": ""
+        },
+        {
+          "id": 909071,
+          "key": "/accounts/909071",
+          "name": "Nommis",
+          "defaultAudioLanguage": "en",
+          "autoSelectAudio": true,
+          "defaultSubtitleLanguage": "en",
+          "subtitleMode": 1,
+          "thumb": ""
+        },
+        {
+          "id": 134234635,
+          "key": "/accounts/134234635",
+          "name": "Jan_B_France",
+          "defaultAudioLanguage": "en",
+          "autoSelectAudio": true,
+          "defaultSubtitleLanguage": "en",
+          "subtitleMode": 1,
+          "thumb": ""
+        },
+        {
+          "id": 134258409,
+          "key": "/accounts/134258409",
+          "name": "coren86",
+          "defaultAudioLanguage": "en",
+          "autoSelectAudio": true,
+          "defaultSubtitleLanguage": "en",
+          "subtitleMode": 1,
+          "thumb": ""
+        },
+        {
+          "id": 566098592,
+          "key": "/accounts/566098592",
+          "name": "rosalie167",
+          "defaultAudioLanguage": "en",
+          "autoSelectAudio": true,
+          "defaultSubtitleLanguage": "en",
+          "subtitleMode": 1,
+          "thumb": ""
+        }
+      ]
+    }
+  },
+  "historySample": [
+    {
+      "historyKey": "/status/sessions/history/1",
+      "key": "/library/metadata/10437",
+      "ratingKey": "10437",
+      "librarySectionID": "4",
+      "parentKey": "/library/metadata/7247",
+      "grandparentKey": "/library/metadata/561",
+      "title": "Fully Dilated",
+      "grandparentTitle": "Star Trek: Lower Decks",
+      "type": "episode",
+      "thumb": "/library/metadata/10437/thumb/1772788193",
+      "parentThumb": "/library/metadata/7247/thumb/1772524057",
+      "grandparentThumb": "/library/metadata/561/thumb/1772788058",
+      "grandparentArt": "/library/metadata/561/art/1772788058",
+      "index": 7,
+      "parentIndex": 5,
+      "originallyAvailableAt": "2024-11-28",
+      "viewedAt": 1733767377,
+      "accountID": 1,
+      "deviceID": 9
+    },
+    {
+      "historyKey": "/status/sessions/history/2",
+      "key": "/library/metadata/9256",
+      "ratingKey": "9256",
+      "librarySectionID": "4",
+      "parentKey": "/library/metadata/9254",
+      "grandparentKey": "/library/metadata/6968",
+      "title": "Holston's Pick",
+      "grandparentTitle": "Silo",
+      "type": "episode",
+      "thumb": "/library/metadata/9256/thumb/1772787536",
+      "parentThumb": "/library/metadata/9254/thumb/1772522849",
+      "grandparentThumb": "/library/metadata/6968/thumb/1772787530",
+      "grandparentArt": "/library/metadata/6968/art/1772787530",
+      "index": 2,
+      "parentIndex": 1,
+      "originallyAvailableAt": "2023-05-04",
+      "viewedAt": 1733782002,
+      "accountID": 1,
+      "deviceID": 11
+    },
+    {
+      "historyKey": "/status/sessions/history/3",
+      "key": "/library/metadata/12456",
+      "ratingKey": "12456",
+      "librarySectionID": "4",
+      "parentKey": "/library/metadata/6815",
+      "grandparentKey": "/library/metadata/322",
+      "title": "November 17, 2024: TikTok Ban",
+      "grandparentTitle": "Last Week Tonight with John Oliver",
+      "type": "episode",
+      "thumb": "/library/metadata/12456/thumb/1772781721",
+      "parentThumb": "/library/metadata/6815/thumb/1771043025",
+      "grandparentThumb": "/library/metadata/322/thumb/1772780808",
+      "grandparentArt": "/library/metadata/322/art/1772780808",
+      "index": 30,
+      "parentIndex": 11,
+      "originallyAvailableAt": "2024-11-17",
+      "viewedAt": 1733867329,
+      "accountID": 1,
+      "deviceID": 17
+    },
+    {
+      "historyKey": "/status/sessions/history/4",
+      "librarySectionID": "4",
+      "title": "The Compass Points Home",
+      "grandparentTitle": "Lioness",
+      "type": "episode",
+      "index": 8,
+      "parentIndex": 2,
+      "originallyAvailableAt": "2024-12-08",
+      "viewedAt": 1733945184,
+      "accountID": 1,
+      "deviceID": 9
+    },
+    {
+      "historyKey": "/status/sessions/history/5",
+      "key": "/library/metadata/10196",
+      "ratingKey": "10196",
+      "librarySectionID": "4",
+      "parentKey": "/library/metadata/10195",
+      "grandparentKey": "/library/metadata/9697",
+      "title": "Sacrificial Soldiers",
+      "grandparentTitle": "Lioness",
+      "type": "episode",
+      "thumb": "/library/metadata/10196/thumb/1772781976",
+      "parentThumb": "/library/metadata/10195/thumb/1771043867",
+      "grandparentThumb": "/library/metadata/9697/thumb/1772781976",
+      "grandparentArt": "/library/metadata/9697/art/1772781976",
+      "index": 1,
+      "parentIndex": 1,
+      "originallyAvailableAt": "2023-07-23",
+      "viewedAt": 1733947274,
+      "accountID": 134234635,
+      "deviceID": 21
+    }
+  ]
+}

@@ -1,0 +1,201 @@
+{
+  "MediaContainer": {
+    "$": {
+      "friendlyName": "myPlex",
+      "identifier": "com.plexapp.plugins.myplex",
+      "machineIdentifier": "695a71704f9c0fdcd170e5db03dd2ec7c9f2bd8b",
+      "totalSize": "5",
+      "size": "5"
+    },
+    "User": [
+      {
+        "$": {
+          "id": "134258409",
+          "title": "coren86",
+          "username": "coren86",
+          "email": "corentine@belder.co",
+          "recommendationsPlaylistId": "",
+          "thumb": "https://plex.tv/users/d42663c92a325cae/avatar?c=1772817668",
+          "protected": "0",
+          "home": "0",
+          "allowTuners": "0",
+          "allowSync": "0",
+          "allowCameraUpload": "0",
+          "allowChannels": "0",
+          "allowSubtitleAdmin": "0",
+          "filterAll": "",
+          "filterMovies": "",
+          "filterMusic": "",
+          "filterPhotos": "",
+          "filterTelevision": "",
+          "restricted": "0"
+        },
+        "Server": [
+          {
+            "$": {
+              "id": "36895239",
+              "serverId": "32035592",
+              "machineIdentifier": "73d9974cf99d2abd11244893dc163f7db6ca1bd8",
+              "name": "Neil-U",
+              "lastSeenAt": "1772920723",
+              "numLibraries": "2",
+              "allLibraries": "0",
+              "owned": "1",
+              "pending": "0"
+            }
+          }
+        ]
+      },
+      {
+        "$": {
+          "id": "134234635",
+          "title": "Jan_B_France",
+          "username": "Jan_B_France",
+          "email": "jan@belder.co",
+          "recommendationsPlaylistId": "",
+          "thumb": "https://plex.tv/users/c5dc90dcae7b2e55/avatar?c=1772903059",
+          "protected": "0",
+          "home": "0",
+          "allowTuners": "0",
+          "allowSync": "0",
+          "allowCameraUpload": "0",
+          "allowChannels": "0",
+          "allowSubtitleAdmin": "0",
+          "filterAll": "",
+          "filterMovies": "",
+          "filterMusic": "",
+          "filterPhotos": "",
+          "filterTelevision": "",
+          "restricted": "0"
+        },
+        "Server": [
+          {
+            "$": {
+              "id": "36895074",
+              "serverId": "32035592",
+              "machineIdentifier": "73d9974cf99d2abd11244893dc163f7db6ca1bd8",
+              "name": "Neil-U",
+              "lastSeenAt": "1772920723",
+              "numLibraries": "2",
+              "allLibraries": "0",
+              "owned": "1",
+              "pending": "0"
+            }
+          }
+        ]
+      },
+      {
+        "$": {
+          "id": "909071",
+          "title": "Nommis",
+          "username": "Nommis",
+          "email": "ssbelder@gmail.com",
+          "recommendationsPlaylistId": "",
+          "thumb": "https://plex.tv/users/7c5e4d6ec3838a14/avatar?c=1772915238",
+          "protected": "0",
+          "home": "0",
+          "allowTuners": "0",
+          "allowSync": "0",
+          "allowCameraUpload": "0",
+          "allowChannels": "0",
+          "allowSubtitleAdmin": "0",
+          "filterAll": "",
+          "filterMovies": "",
+          "filterMusic": "",
+          "filterPhotos": "",
+          "filterTelevision": "",
+          "restricted": "0"
+        },
+        "Server": [
+          {
+            "$": {
+              "id": "36880221",
+              "serverId": "32035592",
+              "machineIdentifier": "73d9974cf99d2abd11244893dc163f7db6ca1bd8",
+              "name": "Neil-U",
+              "lastSeenAt": "1772920723",
+              "numLibraries": "2",
+              "allLibraries": "0",
+              "owned": "1",
+              "pending": "0"
+            }
+          },
+          {
+            "$": {
+              "id": "41595061",
+              "serverId": "34637371",
+              "machineIdentifier": "913da917adff54a5c76b0cb7ae9aaa10debf3681",
+              "name": "Nommis",
+              "lastSeenAt": "1772918147",
+              "numLibraries": "2",
+              "allLibraries": "0",
+              "owned": "0",
+              "pending": "0"
+            }
+          }
+        ]
+      },
+      {
+        "$": {
+          "id": "34448571",
+          "title": "oscar.m30",
+          "username": "oscar.m30",
+          "email": "oscar.margain@gmail.com",
+          "recommendationsPlaylistId": "",
+          "thumb": "https://plex.tv/users/7cab0efd0dcf3162/avatar?c=1766500182",
+          "protected": "0",
+          "home": "0",
+          "allowTuners": "0",
+          "allowSync": "1",
+          "allowCameraUpload": "0",
+          "allowChannels": "0",
+          "allowSubtitleAdmin": "0",
+          "filterAll": "",
+          "filterMovies": "",
+          "filterMusic": "",
+          "filterPhotos": "",
+          "filterTelevision": "",
+          "restricted": "0"
+        }
+      },
+      {
+        "$": {
+          "id": "566098592",
+          "title": "rosalie167",
+          "username": "rosalie167",
+          "email": "rosaliebelder@gmail.com",
+          "recommendationsPlaylistId": "",
+          "thumb": "https://plex.tv/users/a027e8b34d0fcf77/avatar?c=1772914229",
+          "protected": "0",
+          "home": "0",
+          "allowTuners": "0",
+          "allowSync": "1",
+          "allowCameraUpload": "0",
+          "allowChannels": "0",
+          "allowSubtitleAdmin": "0",
+          "filterAll": "",
+          "filterMovies": "",
+          "filterMusic": "",
+          "filterPhotos": "",
+          "filterTelevision": "",
+          "restricted": "0"
+        },
+        "Server": [
+          {
+            "$": {
+              "id": "39495958",
+              "serverId": "32035592",
+              "machineIdentifier": "73d9974cf99d2abd11244893dc163f7db6ca1bd8",
+              "name": "Neil-U",
+              "lastSeenAt": "1772920723",
+              "numLibraries": "2",
+              "allLibraries": "0",
+              "owned": "1",
+              "pending": "0"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
