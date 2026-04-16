@@ -4,7 +4,7 @@ import { useSession } from "next-auth/react";
 import { useState, useEffect } from "react";
 import Sidebar from "./Sidebar";
 import { usePathname } from "next/navigation";
-import { ArrowUp } from "lucide-react";
+import { ArrowUp, Menu } from "lucide-react";
 import { useAppStore } from "@/store/appStore";
 
 export default function AppShell({ children }: { children: React.ReactNode }) {
@@ -67,18 +67,34 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
                 </div>
             )}
 
-            {/* Fixed Sidebar for iPad / Desktop */}
-            <div className={`hidden md:block flex-shrink-0 transition-all z-20 duration-300 ${isCollapsed ? 'w-[80px]' : 'w-[280px]'}`}>
+            {/* Mobile Overlay Backdrop */}
+            {!isCollapsed && (
+                <div 
+                    className="md:hidden fixed inset-0 bg-black/80 backdrop-blur-sm z-40"
+                    onClick={() => setIsCollapsed(true)}
+                />
+            )}
+
+            {/* Sidebar Wrapper (Hidden on mobile if collapsed, fixed overlay if open, relative flex block on md+) */}
+            <div className={`transition-all duration-300 z-50 ${isCollapsed ? 'hidden md:block md:w-[80px] flex-shrink-0' : 'fixed md:relative top-0 left-0 h-screen w-[280px] flex-shrink-0'}`}>
                 <Sidebar 
                     isCollapsed={isCollapsed} 
                     setIsCollapsed={setIsCollapsed} 
                 />
             </div>
 
-            {/* Mobile Header (Fallback context, though target is primarily iPad) */}
-            <div className="md:hidden fixed top-0 left-0 right-0 h-16 bg-neutral-950/80 backdrop-blur-md border-b border-neutral-800/50 z-50 flex items-center px-4">
-                <span className="text-amber-500 font-bold">Plex Cleaner</span>
-                {/* Mobile nav could go here, omitting for now to focus on iPad */}
+            {/* Mobile Header */}
+            <div className={`md:hidden fixed top-0 left-0 right-0 h-16 bg-neutral-950/80 backdrop-blur-md border-b border-neutral-800/50 z-30 flex items-center justify-between px-4 transition-transform ${isCollapsed ? 'translate-y-0' : '-translate-y-full'}`}>
+                <div className="flex items-center gap-3">
+                    <img src="/logo.png" alt="Logo" className="w-8 h-8 rounded-lg" />
+                    <span className="text-amber-500 font-bold">Plex Cleaner</span>
+                </div>
+                <button 
+                  onClick={() => setIsCollapsed(false)}
+                  className="p-2 -mr-2 text-neutral-400 hover:text-white"
+                >
+                  <Menu className="w-6 h-6" />
+                </button>
             </div>
 
             {/* Main Content Area */}
