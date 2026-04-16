@@ -28,7 +28,6 @@ const PLEX_TV_URL = "https://plex.tv/api/v2";
 const APP_NAME = "Plex Cleanup App";
 
 export const authOptions: NextAuthOptions = {
-    trustHost: true,
     providers: [
         CredentialsProvider({
             name: "Plex",
