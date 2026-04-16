@@ -34,30 +34,30 @@ export async function getLibraries() {
 // Fetch all library items (Movies and Shows) for the specific user so we can see Unwatched vs Watched
 export async function getUserLibraryItems(userToken: string, accountId: string, isAdmin?: boolean): Promise<PlexMediaItem[]> {
     try {
-        const localAccountId = isAdmin ? "1" : accountId;
-
-        // 1. Get all library sections
+        // 1. Get all library sections (using admin token so we know what to request)
         const sectionsUrl = `${PLEX_URL}/library/sections?X-Plex-Token=${ADMIN_TOKEN}`;
         const sectionsRes = await axios.get(sectionsUrl, { headers: { Accept: "application/json" } });
         const directories = sectionsRes.data.MediaContainer?.Directory || [];
 
         let allItems: any[] = [];
 
-        // 2. Query each section for all items
+        // 2. Query each section for all items using the user's token
         for (const dir of directories) {
             // type 1 = movie, type 2 = show
             const typeParam = dir.type === 'movie' ? '1' : (dir.type === 'show' ? '2' : null);
             if (!typeParam) continue;
 
             const allUrl = `${PLEX_URL}/library/sections/${dir.key}/all?X-Plex-Token=${userToken}&type=${typeParam}`;
-            const allRes = await axios.get(allUrl, { headers: { Accept: "application/json" } });
-
-            let metadata = allRes.data.MediaContainer?.Metadata || [];
-
-            // Filter by user account ID if it's bleeding through (though userToken usually scopes it)
-            metadata = metadata.filter((i: any) => !i.accountID || i.accountID.toString() === localAccountId);
-
-            allItems = [...allItems, ...metadata];
+            
+            try {
+                const allRes = await axios.get(allUrl, { headers: { Accept: "application/json" } });
+                const metadata = allRes.data.MediaContainer?.Metadata || [];
+                allItems = [...allItems, ...metadata];
+            } catch (sectionErr) {
+                // User may not have this library shared with them (401/403/404), skip it
+                console.warn(`User does not have access to library: ${dir.title}`);
+                continue;
+            }
         }
 
         return allItems.filter(item => item && item.ratingKey).map(mapPlexResponseToMediaItem);
@@ -70,15 +70,11 @@ export async function getUserLibraryItems(userToken: string, accountId: string, 
 // Fetch seasons for a specific show
 export async function getShowSeasons(showRatingKey: string, userToken: string, accountId: string, isAdmin?: boolean): Promise<PlexMediaItem[]> {
     try {
-        const localAccountId = isAdmin ? "1" : accountId;
         // The children endpoint works well, but we need to pass userToken to get specific view statuses.
         const url = `${PLEX_URL}/library/metadata/${showRatingKey}/children?X-Plex-Token=${userToken}`;
         const response = await axios.get(url, { headers: { Accept: "application/json" } });
 
-        let metadata = response.data.MediaContainer?.Metadata || [];
-
-        // Filter by user account ID if present, else just map it
-        metadata = metadata.filter((i: any) => !i.accountID || i.accountID.toString() === localAccountId);
+        const metadata = response.data.MediaContainer?.Metadata || [];
 
         return metadata.filter((item: any) => item && item.ratingKey).map(mapPlexResponseToMediaItem);
     } catch (err) {
