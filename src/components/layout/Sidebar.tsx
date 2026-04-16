@@ -7,13 +7,13 @@ import { Film, LogOut, ShieldAlert, Flag, Bug, Tv } from "lucide-react";
 import { Menu, ChevronLeft, ChevronRight } from "lucide-react";
 import { APP_VERSION } from "@/lib/version";
 
-export default function Sidebar({ debugNotAdmin, setDebugNotAdmin, isCollapsed, setIsCollapsed }: { debugNotAdmin: boolean, setDebugNotAdmin: (val: boolean) => void, isCollapsed: boolean, setIsCollapsed: (val: boolean) => void }) {
+export default function Sidebar({ isCollapsed, setIsCollapsed }: { isCollapsed: boolean, setIsCollapsed: (val: boolean) => void }) {
     const { data: session } = useSession();
     const pathname = usePathname();
     const router = useRouter();
     const searchParams = useSearchParams();
 
-    const effectivelyAdmin = session?.user?.isAdmin && !debugNotAdmin;
+    const effectivelyAdmin = !!session?.user?.isAdmin;
 
     const navItems = [
         { name: "Movies", href: "/", icon: Film },
@@ -84,21 +84,6 @@ export default function Sidebar({ debugNotAdmin, setDebugNotAdmin, isCollapsed, 
                         </button>
                     );
                 })}
-
-                {/* Debug Button */}
-                {session?.user?.isAdmin && (
-                    <button
-                        onClick={() => setDebugNotAdmin(!debugNotAdmin)}
-                        className={`w-full mt-6 flex items-center ${isCollapsed ? 'justify-center p-3' : 'gap-3 px-4 py-3'} rounded-xl transition-all font-semibold ${debugNotAdmin
-                                ? "bg-amber-500/10 text-amber-500 border border-amber-500/30"
-                                : "text-neutral-500 hover:text-neutral-400 hover:bg-neutral-800/30"
-                            }`}
-                        title={isCollapsed ? (debugNotAdmin ? "Admin Off" : "Admin On") : "Debug: Pretend to be a regular user"}
-                    >
-                        <Bug className="w-5 h-5" />
-                        {!isCollapsed && <span>{debugNotAdmin ? "Admin Off" : "Admin On"}</span>}
-                    </button>
-                )}
             </nav>
 
             {/* Profile / Bottom Area */}

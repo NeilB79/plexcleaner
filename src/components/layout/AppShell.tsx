@@ -10,7 +10,6 @@ import { useAppStore } from "@/store/appStore";
 export default function AppShell({ children }: { children: React.ReactNode }) {
     const { status } = useSession();
     const pathname = usePathname();
-    const [debugNotAdmin, setDebugNotAdmin] = useState(false);
     const [isCollapsed, setIsCollapsed] = useState(true); // default to collapsed for space
     const [showScrollTop, setShowScrollTop] = useState(false);
     const dynamicBackgroundUrl = useAppStore((state) => state.dynamicBackgroundUrl);
@@ -71,8 +70,6 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
             {/* Fixed Sidebar for iPad / Desktop */}
             <div className={`hidden md:block flex-shrink-0 transition-all z-20 duration-300 ${isCollapsed ? 'w-[80px]' : 'w-[280px]'}`}>
                 <Sidebar 
-                    debugNotAdmin={debugNotAdmin} 
-                    setDebugNotAdmin={setDebugNotAdmin} 
                     isCollapsed={isCollapsed} 
                     setIsCollapsed={setIsCollapsed} 
                 />
