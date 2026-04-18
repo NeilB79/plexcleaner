@@ -42,7 +42,15 @@ export async function getUserLibraryItems(userToken: string, accountId: string, 
         let allItems: any[] = [];
         console.log(`[USER SYNC] Fetching libraries for accountId: ${accountId}. Found ${directories.length} total libraries.`);
 
-        // 2. Query each section for all items using the user's token
+        // 2a. Add a raw root query test to see if the token is completely rejected by the server
+        try {
+            await axios.get(`${PLEX_URL}/?X-Plex-Token=${userToken}`, { headers: { Accept: "application/json", "X-Plex-Client-Identifier": "plex-cleanup-app-local" } });
+            console.log(`[USER SYNC] -> Root connection test passed! Server recognizes this token.`);
+        } catch (e: any) {
+            console.warn(`[USER SYNC] -> Root connection test FAILED with 401. This token has NO ACCESS to this Plex Server IP directly. (Status: ${e.response?.status})`);
+        }
+
+        // 2b. Query each section for all items using the user's token
         for (const dir of directories) {
             // type 1 = movie, type 2 = show
             const typeParam = dir.type === 'movie' ? '1' : (dir.type === 'show' ? '2' : null);
@@ -52,7 +60,12 @@ export async function getUserLibraryItems(userToken: string, accountId: string, 
             
             try {
                 console.log(`[USER SYNC] Querying library: ${dir.title} (ID: ${dir.key}, Type: ${dir.type})`);
-                const allRes = await axios.get(allUrl, { headers: { Accept: "application/json" } });
+                const allRes = await axios.get(allUrl, { 
+                    headers: { 
+                        Accept: "application/json",
+                        "X-Plex-Client-Identifier": "plex-cleanup-app-local"
+                    } 
+                });
                 const metadata = allRes.data.MediaContainer?.Metadata || [];
                 console.log(`[USER SYNC] -> Library ${dir.title} returned ${metadata.length} items for this user.`);
                 allItems = [...allItems, ...metadata];
