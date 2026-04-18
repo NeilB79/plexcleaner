@@ -151,7 +151,7 @@ function mapPlexResponseToMediaItem(item: any): PlexMediaItem {
             ratingKey: item.parentKey ? item.parentKey.split("/").pop()! : item.ratingKey,
             title: `Season ${item.parentIndex || 1}`,
             type: "season",
-            thumbUrl: `${PLEX_URL}${item.parentThumb || item.thumb}?X-Plex-Token=${ADMIN_TOKEN}`,
+            thumbUrl: item.parentThumb || item.thumb ? `/api/image?path=${encodeURIComponent(item.parentThumb || item.thumb)}` : '',
             parentTitle: item.grandparentTitle, // The Show Name
             viewCount: item.viewCount || 0,
             viewOffset: item.viewOffset,
@@ -165,7 +165,7 @@ function mapPlexResponseToMediaItem(item: any): PlexMediaItem {
         ratingKey: item.ratingKey,
         title: item.title,
         type: item.type === "episode" ? "show" : item.type, // Normalize episode up to show for our app's UI
-        thumbUrl: `${PLEX_URL}${item.thumb}?X-Plex-Token=${ADMIN_TOKEN}`, // Use admin token to fetch images reliably
+        thumbUrl: item.thumb || item.parentThumb ? `/api/image?path=${encodeURIComponent(item.thumb || item.parentThumb)}` : '',
         parentTitle: item.parentTitle,
         grandparentTitle: item.grandparentTitle,
         viewCount: item.viewCount || 0,
