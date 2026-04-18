@@ -20,6 +20,40 @@ export interface PlexMediaItem {
     fileSize?: number; // bytes
 }
 
+/**
+ * Resolves the user's specific access token for THIS Plex Server.
+ * Shared users cannot always use their global auth token directly against a local IP.
+ * They must use the `accessToken` explicitly assigned to them for this server's Machine Identifier.
+ */
+async function getServerTokenForUser(userToken: string): Promise<string> {
+    try {
+        // 1. Get the admin server's Machine Identifier
+        const identityRes = await axios.get(`${PLEX_URL}/identity?X-Plex-Token=${ADMIN_TOKEN}`, { headers: { Accept: "application/json" } });
+        const machineIdentifier = identityRes.data.MediaContainer?.machineIdentifier;
+        
+        if (!machineIdentifier) {
+            return userToken;
+        }
+
+        // 2. Query plex.tv for the user's tokens for all shared servers
+        const resourcesRes = await axios.get(`https://plex.tv/api/v2/resources?includeHttps=1&X-Plex-Token=${userToken}&X-Plex-Client-Identifier=plex-cleanup-app-local`, { headers: { Accept: "application/json" } });
+        
+        // 3. Find the server that matches the Machine Identifier
+        const serverResource = resourcesRes.data.find((r: any) => r.clientIdentifier === machineIdentifier);
+        
+        if (serverResource && serverResource.accessToken) {
+            console.log(`[SERVER TOKEN RESOLVER] Resolved explicit Local Access Token for user.`);
+            return serverResource.accessToken;
+        }
+
+        console.warn(`[SERVER TOKEN RESOLVER] Target server not found in user's resources array.`);
+        return userToken;
+    } catch (e: any) {
+        console.warn(`[SERVER TOKEN RESOLVER] Error resolving token: ${e.message}`);
+        return userToken;
+    }
+}
+
 // Fetch the libraries (Movies, TV Shows)
 export async function getLibraries() {
     const url = `${PLEX_URL}/library/sections?X-Plex-Token=${ADMIN_TOKEN}`;
@@ -42,24 +76,18 @@ export async function getUserLibraryItems(userToken: string, accountId: string, 
         let allItems: any[] = [];
         console.log(`[USER SYNC] Fetching libraries for accountId: ${accountId}. Found ${directories.length} total libraries.`);
 
-        // 2a. Add a raw root query test to see if the token is completely rejected by the server
-        try {
-            await axios.get(`${PLEX_URL}/?X-Plex-Token=${userToken}`, { headers: { Accept: "application/json", "X-Plex-Client-Identifier": "plex-cleanup-app-local" } });
-            console.log(`[USER SYNC] -> Root connection test passed! Server recognizes this token.`);
-        } catch (e: any) {
-            console.warn(`[USER SYNC] -> Root connection test FAILED with 401. This token has NO ACCESS to this Plex Server IP directly. (Status: ${e.response?.status})`);
-        }
+        // 2. Resolve the secure local server token for this user, enabling local IP queries
+        const resolvedUserToken = await getServerTokenForUser(userToken);
 
-        // 2b. Query each section for all items using the user's token
+        // 3. Query each section for all items using the resolved user token
         for (const dir of directories) {
             // type 1 = movie, type 2 = show
             const typeParam = dir.type === 'movie' ? '1' : (dir.type === 'show' ? '2' : null);
             if (!typeParam) continue;
 
-            const allUrl = `${PLEX_URL}/library/sections/${dir.key}/all?X-Plex-Token=${userToken}&type=${typeParam}`;
+            const allUrl = `${PLEX_URL}/library/sections/${dir.key}/all?X-Plex-Token=${resolvedUserToken}&type=${typeParam}`;
             
             try {
-                console.log(`[USER SYNC] Querying library: ${dir.title} (ID: ${dir.key}, Type: ${dir.type})`);
                 const allRes = await axios.get(allUrl, { 
                     headers: { 
                         Accept: "application/json",
@@ -89,9 +117,14 @@ export async function getUserLibraryItems(userToken: string, accountId: string, 
 // Fetch seasons for a specific show
 export async function getShowSeasons(showRatingKey: string, userToken: string, accountId: string, isAdmin?: boolean): Promise<PlexMediaItem[]> {
     try {
-        // The children endpoint works well, but we need to pass userToken to get specific view statuses.
-        const url = `${PLEX_URL}/library/metadata/${showRatingKey}/children?X-Plex-Token=${userToken}`;
-        const response = await axios.get(url, { headers: { Accept: "application/json" } });
+        const resolvedUserToken = await getServerTokenForUser(userToken);
+        const url = `${PLEX_URL}/library/metadata/${showRatingKey}/children?X-Plex-Token=${resolvedUserToken}`;
+        const response = await axios.get(url, { 
+            headers: { 
+                Accept: "application/json",
+                "X-Plex-Client-Identifier": "plex-cleanup-app-local"
+            } 
+        });
 
         const metadata = response.data.MediaContainer?.Metadata || [];
 
@@ -162,8 +195,14 @@ export async function getMediaMetadata(ratingKey: string): Promise<PlexMediaItem
 // Get watch state for a specific item using a specific user's token
 export async function getUserMediaMetadata(ratingKey: string, userToken: string): Promise<PlexMediaItem | null> {
     try {
-        const url = `${PLEX_URL}/library/metadata/${ratingKey}?X-Plex-Token=${userToken}`;
-        const response = await axios.get(url, { headers: { Accept: "application/json" } });
+        const resolvedUserToken = await getServerTokenForUser(userToken);
+        const url = `${PLEX_URL}/library/metadata/${ratingKey}?X-Plex-Token=${resolvedUserToken}`;
+        const response = await axios.get(url, { 
+            headers: { 
+                Accept: "application/json",
+                "X-Plex-Client-Identifier": "plex-cleanup-app-local"
+            } 
+        });
         const item = response.data.MediaContainer?.Metadata?.[0];
         if (!item) return null;
         return mapPlexResponseToMediaItem(item);
