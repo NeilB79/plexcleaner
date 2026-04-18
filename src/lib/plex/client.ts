@@ -40,6 +40,7 @@ export async function getUserLibraryItems(userToken: string, accountId: string, 
         const directories = sectionsRes.data.MediaContainer?.Directory || [];
 
         let allItems: any[] = [];
+        console.log(`[USER SYNC] Fetching libraries for accountId: ${accountId}. Found ${directories.length} total libraries.`);
 
         // 2. Query each section for all items using the user's token
         for (const dir of directories) {
@@ -50,17 +51,22 @@ export async function getUserLibraryItems(userToken: string, accountId: string, 
             const allUrl = `${PLEX_URL}/library/sections/${dir.key}/all?X-Plex-Token=${userToken}&type=${typeParam}`;
             
             try {
+                console.log(`[USER SYNC] Querying library: ${dir.title} (ID: ${dir.key}, Type: ${dir.type})`);
                 const allRes = await axios.get(allUrl, { headers: { Accept: "application/json" } });
                 const metadata = allRes.data.MediaContainer?.Metadata || [];
+                console.log(`[USER SYNC] -> Library ${dir.title} returned ${metadata.length} items for this user.`);
                 allItems = [...allItems, ...metadata];
-            } catch (sectionErr) {
+            } catch (sectionErr: any) {
                 // User may not have this library shared with them (401/403/404), skip it
-                console.warn(`User does not have access to library: ${dir.title}`);
+                console.warn(`[USER SYNC] -> Error querying library ${dir.title}: ${sectionErr.message} (Status: ${sectionErr.response?.status})`);
                 continue;
             }
         }
 
-        return allItems.filter(item => item && item.ratingKey).map(mapPlexResponseToMediaItem);
+        const validItems = allItems.filter(item => item && item.ratingKey);
+        console.log(`[USER SYNC] Total valid items gathered across all libraries: ${validItems.length}`);
+
+        return validItems.map(mapPlexResponseToMediaItem);
     } catch (err) {
         console.error("Error fetching full user library from Plex:", err);
         return [];
