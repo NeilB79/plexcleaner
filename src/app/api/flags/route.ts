@@ -3,6 +3,7 @@ import { authOptions } from "../auth/[...nextauth]/route";
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { getMediaMetadata } from "@/lib/plex/client";
+import { sendDiscordNotification } from "@/lib/discord";
 
 export async function POST(req: Request) {
     try {
@@ -62,6 +63,14 @@ export async function POST(req: Request) {
                 mediaItem: true,
             }
         });
+
+        // 4. Send Discord Notification
+        const username = session.user.name || session.user.email || 'A user';
+        const itemType = type === 'show' ? 'Show' : type === 'movie' ? 'Movie' : type;
+        const itemTitle = seasonNumber ? `${title} (Season ${seasonNumber})` : title;
+        
+        await sendDiscordNotification(`🗑️ **${username}** requested deletion of **${itemTitle}** (${itemType}).`);
+
         // Prisma BigInt fields cannot be natively serialized to JSON.
         const serializedRequest = JSON.parse(JSON.stringify(flagRequest, (key, value) =>
             typeof value === 'bigint' ? value.toString() : value
